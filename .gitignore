@@ -1,0 +1,17 @@
+# Virtual Environment
+
+linux-venv/
+windows-venv/
+
+# Database
+
+db.sqlite3
+
+# pycache
+
+__pycache__/
+*.pyc
+
+# media
+
+media/

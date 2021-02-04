@@ -1,0 +1,7 @@
+{% load wagtailimages_tags %}
+
+<div class="about">
+    <h1>{{ value.name }}</h1>
+    {% image value.image fill-400x200 %}
+    <p>{{ value.description }}</p>
+</div>

@@ -1,0 +1,9 @@
+{% load wagtailcore_tags %}
+
+<div class="projects">
+    <h1> {{ value.title }}</h1>
+    <p> {{ value.foreword }}</p>
+    {% for project in value.projects %}
+        <section>{% include_block project %}</section>
+    {% endfor %}
+</div>

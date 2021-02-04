@@ -1,0 +1,5 @@
+{% load wagtailimages_tags %}
+
+<div class="image">
+    {% image value.image fill-400x200 title=value.description|cut:"<p>"|cut:"</p>" %}
+</div>
