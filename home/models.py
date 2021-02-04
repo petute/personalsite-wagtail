@@ -7,23 +7,36 @@ from wagtail.images.blocks import ImageChooserBlock
 
 # Sections
 
-class _S_Header(blocks.StructBlock):
+class _S_HeaderBlock(blocks.StructBlock):
     pass
+
+class _S_About_ContactBlock(blocks.StructBlock):
+    name = blocks.CharBlock()
+    image = ImageChooserBlock()
+    url = blocks.URLBlock()
+
+    class Meta:
+        template = 'home/blocks/_S_About_Contact.html'
 
 class _S_AboutBlock(blocks.StructBlock):
     name = blocks.CharBlock()
     picture = ImageChooserBlock()
     description = blocks.RichTextBlock()
+    contacts = blocks.StreamBlock([
+        ('contact', _S_About_ContactBlock()),
+    ])
 
     class Meta:
-        tempate = 'home/blocks/_S_About.html'
+        template = 'home/blocks/_S_About.html'
 
-class _S_Footer(blocks.StructBlock):
+class _S_FooterBlock(blocks.StructBlock):
     pass
 
 class HomePage(Page):
     sections = StreamField([
-        ('about', _S_AboutBlock(null=True, blank=True))
+        ('header', _S_HeaderBlock(null=True, blank=True)),
+        ('about', _S_AboutBlock(null=True, blank=True)),
+        ('footer', _S_FooterBlock(null=True, blank=True)),
     ],null=True, blank=False)
 
     content_panels = Page.content_panels + [

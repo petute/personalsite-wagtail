@@ -1,7 +1,10 @@
-{% load wagtailimages_tags %}
+{% load wagtailimages_tags wagtailcore_tags %}
 
 <div class="about">
     <h1>{{ value.name }}</h1>
     {% image value.image fill-400x200 %}
     <p>{{ value.description }}</p>
+    {% for contact in value.contacts %}
+        <section>{% include_block contact %}</section>
+    {% endfor %}
 </div>
