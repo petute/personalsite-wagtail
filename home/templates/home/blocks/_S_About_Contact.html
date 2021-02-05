@@ -1,6 +1,6 @@
 {% load wagtailimages_tags %}
 
 <div class="contact">
-    {% image value.image fill-100x100 %}
-    <a href=value.url>{{ value.name }}</a>
+    {% image value.image fill-50x50 %}
+    <a href={{ value.url }}>{{ value.name }}</a>
 </div>

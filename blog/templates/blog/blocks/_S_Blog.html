@@ -1,0 +1,8 @@
+{% load wagtailcore_tags %}
+
+<div class="blog">
+    <h1>{{ value.title }}</h1>
+    {% for post in value.posts %}
+        <section>{% include_block post %}</section>
+    {% endfor %}
+</div>
